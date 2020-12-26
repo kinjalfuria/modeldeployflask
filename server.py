@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template
-import server.newutil as newutil  # replace this by import util for running locally
+import server.util as newutil  # replace this by import util for running locally
 # import newutil
 
 app = Flask(__name__, static_url_path="/client", static_folder='../client', template_folder="../client")
@@ -16,7 +16,7 @@ def index():
         return render_template("app.html")
 
 
-@app.route('/predict_loan_status', methods=['GET', 'POST'])
+@app.route('/predict_loan_status', methods=['POST'])
 def predict_loan_status():
     # applicant_income = int(request.form['applicant_income'])
     applicant_income = int(request.form['applicant_income'])
